@@ -58,26 +58,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    justify-content: start;
+    min-height: 60vh;
     padding: 20px;
     box-sizing: border-box;
     opacity: 0;
     transition: opacity 0.5s ease;
     background-color: #f5f5f5;
   }
+
   body {
     font-family: Arial, sans-serif;
     background-color: #f5f6fa;
     color: #2f3640;
     padding: 20px;
     text-align: center;
-  }
-  
-  .hint {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #444;
   }
   
   .container {
@@ -87,6 +82,18 @@
     flex-wrap: wrap;
   }
   
+  .hint {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: #444;
+    background-color: #e0f7fa;
+    padding: 15px 20px;
+    border-left: 5px solid #00bcd4;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
   #probabilities {
     display: flex;
     gap: 10px;
@@ -104,17 +111,19 @@
     position: relative;
     cursor: pointer;
     transition: box-shadow 0.2s;
+    transition: transform 0.1s;
     padding-top: 10px;
     z-index: 2;
   }
-  
-  .prob-box:hover {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  @media (hover: hover) {
+    .prob-box:hover {
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+      transform: scale(1.05);
+    }
   }
-  
+
   .prob-box:active {
     transform: scale(0.95);
-    transition: transform 0.1s;
   }
   
   .prob-number {
@@ -154,17 +163,21 @@
     font-size: 1.5rem;
     background-color: white;
     color: black;
+    padding: 0 30px;
     border: 2px solid #3398db;
     border-radius: 10px;
     transition-duration: 0.4s;
   }
   
-  .resetButton:hover {
-    background-color: #3398db;
-    color: white;
+  @media (hover: hover) {
+    .resetButton:hover {
+      padding: 2px 40px;
+    }
   }
   
   .resetButton:active {
+    color: white;
+    background-color: #3398db;
     transform: scale(0.9);
     transition: transform 0.1s;
   }

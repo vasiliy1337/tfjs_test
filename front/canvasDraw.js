@@ -1,5 +1,5 @@
 const color = "black";
-const drawLineWidth = 1;
+const drawLineWidth = 2;
 
 let isDrawing = false;
 let x = 0, y = 0;
@@ -97,4 +97,14 @@ function drawLine(ctx, x1, y1, x2, y2) {
 
 function clearArea() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawImage(pixelData) {
+
+  for (let i = 0; i < pixelData.length; i++) {
+      const x = i % canvas.width;
+      const y = Math.floor(i / canvas.height);
+      ctx.fillStyle = `rgb(0, 0, 0, ${pixelData[i]})`;
+      ctx.fillRect(x, y, 1, 1);
+  }
 }

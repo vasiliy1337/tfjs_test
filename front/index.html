@@ -17,57 +17,61 @@
       <div class="loading-text">Loading model...</div>
     </div>
     <div id="content">
+      <div class="container">
         <div class="hint">
-            Click on the boxes below to load images from the dataset or use your mouse to draw a number
+          Click on the boxes below to load images from the dataset or draw a number.
         </div>
-        <div class="container">
-          <div id="probabilities" aria-label="Digit probabilities">
-            <div class="prob-box" onclick="onLabelPress(0)">
-              <span class="prob-number">0</span>
-              <div class="prob-bar" id="prob-bar-0"></div>
-            </div>
-            <div class="prob-box" onclick="onLabelPress(1)">
-              <span class="prob-number">1</span>
-              <div class="prob-bar" id="prob-bar-1"></div>
-            </div>
-            <div class="prob-box" onclick="onLabelPress(2)">
-              <span class="prob-number">2</span>
-              <div class="prob-bar" id="prob-bar-2"></div>
-            </div>
-            <div class="prob-box" onclick="onLabelPress(3)">
-              <span class="prob-number">3</span>
-              <div class="prob-bar" id="prob-bar-3"></div>
-            </div>
-            <div class="prob-box" onclick="onLabelPress(4)">
-              <span class="prob-number">4</span>
-              <div class="prob-bar" id="prob-bar-4"></div>
-            </div>
-            <div class="prob-box" onclick="onLabelPress(5)">
-              <span class="prob-number">5</span>
-              <div class="prob-bar" id="prob-bar-5"></div>
-            </div>
-            <div class="prob-box" onclick="onLabelPress(6)">
-              <span class="prob-number">6</span>
-              <div class="prob-bar" id="prob-bar-6"></div>
-            </div>
-            <div class="prob-box" onclick="onLabelPress(7)">
-              <span class="prob-number">7</span>
-              <div class="prob-bar" id="prob-bar-7"></div>
-            </div>
-            <div class="prob-box" onclick="onLabelPress(8)">
-              <span class="prob-number">8</span>
-              <div class="prob-bar" id="prob-bar-8"></div>
-            </div>
-            <div class="prob-box" onclick="onLabelPress(9)">
-              <span class="prob-number">9</span>
-              <div class="prob-bar" id="prob-bar-9"></div>
-            </div>
+      </div>
+      <div class="container">
+        <div id="probabilities" aria-label="Digit probabilities">
+          <div class="prob-box" onclick="onLabelPress(0)">
+            <span class="prob-number">0</span>
+            <div class="prob-bar" id="prob-bar-0"></div>
+          </div>
+          <div class="prob-box" onclick="onLabelPress(1)">
+            <span class="prob-number">1</span>
+            <div class="prob-bar" id="prob-bar-1"></div>
+          </div>
+          <div class="prob-box" onclick="onLabelPress(2)">
+            <span class="prob-number">2</span>
+            <div class="prob-bar" id="prob-bar-2"></div>
+          </div>
+          <div class="prob-box" onclick="onLabelPress(3)">
+            <span class="prob-number">3</span>
+            <div class="prob-bar" id="prob-bar-3"></div>
+          </div>
+          <div class="prob-box" onclick="onLabelPress(4)">
+            <span class="prob-number">4</span>
+            <div class="prob-bar" id="prob-bar-4"></div>
+          </div>
+          <div class="prob-box" onclick="onLabelPress(5)">
+            <span class="prob-number">5</span>
+            <div class="prob-bar" id="prob-bar-5"></div>
+          </div>
+          <div class="prob-box" onclick="onLabelPress(6)">
+            <span class="prob-number">6</span>
+            <div class="prob-bar" id="prob-bar-6"></div>
+          </div>
+          <div class="prob-box" onclick="onLabelPress(7)">
+            <span class="prob-number">7</span>
+            <div class="prob-bar" id="prob-bar-7"></div>
+          </div>
+          <div class="prob-box" onclick="onLabelPress(8)">
+            <span class="prob-number">8</span>
+            <div class="prob-bar" id="prob-bar-8"></div>
+          </div>
+          <div class="prob-box" onclick="onLabelPress(9)">
+            <span class="prob-number">9</span>
+            <div class="prob-bar" id="prob-bar-9"></div>
           </div>
         </div>
-        <div class="container">
-          <canvas id="canvasDigit" width="28" height="28"></canvas>
-        </div>
-        <button id="resetButton" class="resetButton">Reset</button>
+      </div>
+      <div class="container">
+        <canvas id="canvasDigit" width="28" height="28"></canvas>
+      </div>
+      <div class="container">
+        <button id="resetButton" class="resetButton" onclick="clearData()">Reset</button>
+      </div>
     </div>
 </body>
 </html>

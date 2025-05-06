@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package main;
+
+option go_package = "./backend/mnistpb";
+
+message ImageSample {
+  int32 label = 1;
+  repeated float pixels = 2; // 784 values (28x28 grayscale)
+}
+
+message Dataset {
+  repeated ImageSample samples = 1;
+}

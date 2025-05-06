@@ -1,8 +1,9 @@
 // Constants
 const GRID_SIZE = 28
-let model = null
-const serverIP = "localhost:8080"
 
+const serverIP = "http://localhost:8080"
+
+let model = null
 let probContainer, resetBtn
 
 window.addEventListener("DOMContentLoaded", init)
@@ -26,10 +27,6 @@ async function init() {
   }).catch(error => {
     console.error('Loading error:', error);
   });
-  resetBtn.addEventListener("click", () => {
-    clearArea()
-    updateProbabilities(new Array(10).fill(0))
-  })
 }
 
 function hideLoadingScreen() {
@@ -44,7 +41,7 @@ function hideLoadingScreen() {
 
 async function loadModel() {
   try {
-    model = await tf.loadLayersModel("http://localhost:8080/model/model.json")
+    model = await tf.loadLayersModel(`${serverIP}/model/model.json`)
     console.log("Model loaded successfully")
   } catch (error) {
     console.error("Failed to load model:", error)
@@ -96,24 +93,21 @@ function updateProbabilities(probabilities) {
 
 async function onLabelPress(label) {
   try {
-    const response = await fetch(`http://${serverIP}/api/random-image?label=${label}`)
+    const response = await fetch(`${serverIP}/api/random-image?label=${label}`)
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
 
     const data = await response.json()
-
-    if (data.image && data.image.length === GRID_SIZE * GRID_SIZE) {
-      clearGrid()
-      data.image.forEach((value, index) => {
-        const row = Math.floor(index / GRID_SIZE)
-        const col = index % GRID_SIZE
-        setCell(row, col, value)
-      })
-
-      evaluateModel()
-    }
+    clearData()
+    drawImage(data.image)
+    evaluateModel()
   } catch (error) {
     console.error("Error fetching random image:", error)
   }
+}
+
+function clearData() {
+  clearArea()
+  updateProbabilities(new Array(10).fill(0))
 }
